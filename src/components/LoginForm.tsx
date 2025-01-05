@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { LoginFormData } from '../types/auth.types';
