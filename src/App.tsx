@@ -22,8 +22,11 @@ const App: React.FC = () => {
     return !!(token && user);
   };
 
+  // Get the base URL from environment or default to '/moneyxf'
+  const baseUrl = process.env.PUBLIC_URL || '/moneyxf';
+
   return (
-    <Router basename="/moneyxf">
+    <Router basename={baseUrl}>
       <div className="App">
         <Routes>
           <Route
@@ -44,6 +47,7 @@ const App: React.FC = () => {
             path="/transactions"
             element={isAuthenticated() ? <Transactions /> : <Navigate to="/login" />}
           />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
     </Router>
