@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/moneyxf/static/css/main.9994ffa1.chunk.css",
+    "main.js": "/moneyxf/static/js/main.2d65b7fb.chunk.js",
+    "main.js.map": "/moneyxf/static/js/main.2d65b7fb.chunk.js.map",
+    "runtime-main.js": "/moneyxf/static/js/runtime-main.bd602739.js",
+    "runtime-main.js.map": "/moneyxf/static/js/runtime-main.bd602739.js.map",
+    "static/js/2.71d32ddb.chunk.js": "/moneyxf/static/js/2.71d32ddb.chunk.js",
+    "static/js/2.71d32ddb.chunk.js.map": "/moneyxf/static/js/2.71d32ddb.chunk.js.map",
+    "index.html": "/moneyxf/index.html",
+    "static/css/main.9994ffa1.chunk.css.map": "/moneyxf/static/css/main.9994ffa1.chunk.css.map",
+    "static/js/2.71d32ddb.chunk.js.LICENSE.txt": "/moneyxf/static/js/2.71d32ddb.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bd602739.js",
+    "static/js/2.71d32ddb.chunk.js",
+    "static/css/main.9994ffa1.chunk.css",
+    "static/js/main.2d65b7fb.chunk.js"
+  ]
+}
