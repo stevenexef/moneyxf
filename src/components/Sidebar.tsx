@@ -10,9 +10,9 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSignOut = () => {
-    // Clear all auth data
     localStorage.clear();
-    navigate('/login');
+    // Force a page reload to clear all states
+    window.location.href = process.env.PUBLIC_URL ? `${process.env.PUBLIC_URL}/login` : '/login';
   };
 
   const toggleMenu = () => {

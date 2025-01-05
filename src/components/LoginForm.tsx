@@ -3,7 +3,11 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { LoginFormData } from '../types/auth.types';
 
-const LoginForm: React.FC = () => {
+interface LoginFormProps {
+  setIsAuth: (auth: boolean) => void;
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({ setIsAuth }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState<LoginFormData>({
     email: '',
@@ -24,17 +28,13 @@ const LoginForm: React.FC = () => {
     setError('');
 
     try {
-      // Dummy credentials
       const dummyUser = {
         email: 'demo@example.com',
         password: 'demo123',
       };
 
       if (formData.email === dummyUser.email && formData.password === dummyUser.password) {
-        // Clear any existing data
         localStorage.clear();
-
-        // Set new auth data
         localStorage.setItem('token', 'mock-token');
         localStorage.setItem(
           'user',
@@ -45,10 +45,8 @@ const LoginForm: React.FC = () => {
           })
         );
 
-        // Small delay to ensure localStorage is updated
-        setTimeout(() => {
-          navigate('/dashboard');
-        }, 100);
+        setIsAuth(true);
+        navigate('/dashboard');
       } else {
         setError('Invalid email or password. Try demo@example.com / demo123');
       }

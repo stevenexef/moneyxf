@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
@@ -15,14 +15,24 @@ import './styles/transactions.css';
 import './App.css';
 
 const App: React.FC = () => {
-  // Check both token and user data
-  const isAuthenticated = () => {
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
-    return !!(token && user);
-  };
+  const [isLoading, setIsLoading] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
 
-  // Get the base URL from environment or default to '/moneyxf'
+  useEffect(() => {
+    const checkAuth = () => {
+      const token = localStorage.getItem('token');
+      const user = localStorage.getItem('user');
+      setIsAuth(!!(token && user));
+      setIsLoading(false);
+    };
+
+    checkAuth();
+  }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>; // Or your loading component
+  }
+
   const baseUrl = process.env.PUBLIC_URL || '/moneyxf';
 
   return (
@@ -31,21 +41,21 @@ const App: React.FC = () => {
         <Routes>
           <Route
             path="/"
-            element={isAuthenticated() ? <Navigate to="/dashboard" /> : <Navigate to="/login" />}
-          />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/register" element={<RegisterForm />} />
-          <Route
-            path="/dashboard"
-            element={isAuthenticated() ? <Dashboard /> : <Navigate to="/login" />}
+            element={isAuth ? <Navigate to="/dashboard" /> : <Navigate to="/login" />}
           />
           <Route
-            path="/budget"
-            element={isAuthenticated() ? <Budget /> : <Navigate to="/login" />}
+            path="/login"
+            element={isAuth ? <Navigate to="/dashboard" /> : <LoginForm setIsAuth={setIsAuth} />}
           />
+          <Route
+            path="/register"
+            element={isAuth ? <Navigate to="/dashboard" /> : <RegisterForm />}
+          />
+          <Route path="/dashboard" element={isAuth ? <Dashboard /> : <Navigate to="/login" />} />
+          <Route path="/budget" element={isAuth ? <Budget /> : <Navigate to="/login" />} />
           <Route
             path="/transactions"
-            element={isAuthenticated() ? <Transactions /> : <Navigate to="/login" />}
+            element={isAuth ? <Transactions /> : <Navigate to="/login" />}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
