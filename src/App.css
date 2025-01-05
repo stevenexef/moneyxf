@@ -159,9 +159,7 @@ body {
   max-width: 480px;
   background: var(--card-background);
   border-radius: 16px;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .auth-form h2 {
@@ -1037,17 +1035,13 @@ button:hover {
   background: var(--card-background);
   padding: 24px;
   border-radius: 16px;
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.05),
-    0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
 .stat-card:hover {
   transform: translateY(-2px);
-  box-shadow:
-    0 4px 6px rgba(0, 0, 0, 0.05),
-    0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .stat-card.highlight {
@@ -1804,4 +1798,156 @@ button:hover {
     font-size: 13px;
     font-weight: 500;
   }
+}
+
+/* Budget page specific styles */
+.budget-overview {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    padding: 0;
+    gap: 16px;
+  }
+}
+
+.budget-summary {
+  padding: 24px;
+}
+
+.budget-summary h3 {
+  font-size: 16px;
+  margin: 0 0 16px;
+  opacity: 0.9;
+}
+
+.budget-summary .balance {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0 0 20px;
+}
+
+.budget-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.budget-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.budget-category {
+  padding: 20px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.category-info h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.category-budget {
+  margin: 0;
+  font-size: 14px;
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+}
+
+.amount-spent {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.amount-total {
+  color: var(--text-secondary);
+}
+
+.edit-budget {
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--primary-color);
+  background: none;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 24px;
+  line-height: 1;
+}
+
+.edit-budget:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.category-bar {
+  height: 8px;
+  background: var(--background);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.category-progress {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.remaining-budget {
+  display: block;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Update progress bar styles for budget summary */
+.budget-summary .progress-bar {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 16px 0 8px;
+}
+
+.budget-summary .progress {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  position: relative;
+}
+
+.budget-summary .progress-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: progress-glow 2s infinite;
 }

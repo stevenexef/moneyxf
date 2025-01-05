@@ -1,0 +1,13 @@
+@import './variables.css';
+
+.dashboard {
+  min-height: 100vh;
+  background-color: var(--background);
+  display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+/* Rest of dashboard-related styles... */

@@ -3,6 +3,15 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import Dashboard from './components/Dashboard';
+import Budget from './components/Budget';
+import Transactions from './components/Transactions';
+import './styles/variables.css';
+import './styles/base.css';
+import './styles/auth.css';
+import './styles/sidebar.css';
+import './styles/dashboard.css';
+import './styles/budget.css';
+import './styles/transactions.css';
 import './App.css';
 
 const App: React.FC = () => {
@@ -26,6 +35,14 @@ const App: React.FC = () => {
           <Route
             path="/dashboard"
             element={isAuthenticated() ? <Dashboard /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/budget"
+            element={isAuthenticated() ? <Budget /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/transactions"
+            element={isAuthenticated() ? <Transactions /> : <Navigate to="/login" />}
           />
         </Routes>
       </div>

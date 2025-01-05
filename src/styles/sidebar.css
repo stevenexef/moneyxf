@@ -1,0 +1,15 @@
+@import './variables.css';
+
+.sidebar {
+  width: 240px;
+  background: var(--card-background);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e5e7eb;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+/* Rest of sidebar-related styles... */
