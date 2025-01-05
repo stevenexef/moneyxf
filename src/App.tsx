@@ -14,7 +14,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Router>
+    <Router basename="/moneyxf">
       <div className="App">
         <Routes>
           <Route
