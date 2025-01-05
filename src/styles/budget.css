@@ -15,4 +15,147 @@
   }
 }
 
+.budget-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 16px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+}
+
+.budget-category {
+  background: var(--background);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.category-info {
+  flex: 1;
+}
+
+.category-info h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.category-budget {
+  margin: 0;
+  font-size: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.amount-spent {
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.amount-total {
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.edit-budget {
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--primary-color);
+  background: none;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 24px;
+  line-height: 1;
+  width: auto;
+  min-width: 48px;
+  flex-shrink: 0;
+}
+
+.edit-budget:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.category-bar {
+  height: 8px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.category-progress {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.remaining-budget {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.metric-progress {
+  margin-top: 12px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  position: relative;
+}
+
+.progress-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: progress-glow 2s infinite;
+}
+
+.progress-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes progress-glow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 /* Rest of budget-related styles... */
