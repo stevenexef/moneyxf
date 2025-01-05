@@ -17,7 +17,6 @@ const Dashboard: React.FC = () => {
           <div className="welcome-content">
             <div className="welcome-text">
               <h1>Welcome back, John</h1>
-              <p>•</p>
               <p>Here's what's happening with your finances today</p>
             </div>
             <div className="date-display">
